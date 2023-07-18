@@ -1,0 +1,71 @@
+## Java Bean
+
+- java bean?
+
+Java Bean은 Java 언어로 작성된 소프트웨어 컴포넌트를 지칭하는 용어다.
+
+이후 이는 자바로 작성한 클래스 중 java beans convention을 따르는 클래스를 지칭하는 용어로 사용된다.
+
+- java bean의 목적
+
+Java Bean은 재사용 가능한 소프트웨어 컴포넌트를 만들기 위한 목적으로 사용된다.
+
+- java bean의 특징
+
+0. 클래스는 기본 패키지 외의 특정한 패키지에 속해야한다.
+
+1. 클래스는 기본적으로 private 필드를 가지고, 이를 다루기 위한 getter/setter 메소드를 가진다. 필드에 있는 속성은 getter/setter 메소드를 통해서만 접근이 가능하다.
+
+2. 클래스는 인자가 없는 기본 생성자를 가진다. (@NoArgConstructor)
+
+3. 클래스는 직렬화가 가능해야한다. 자바에서는 이를 Serializable 인터페이스를 구현하는 방향으로 진행한다.. (@Serializable)
+
+- java bean의 예시
+
+```java
+
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    private String name;
+    private int age;
+
+    /*
+    * 기본 생성자
+    */
+    public Person() {
+    }
+
+    /*
+    * 생성자
+    */
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    /*
+    * property에 대한 getter 메소드
+    */
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    /*
+    * property에 대한 setter 메소드
+    */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+
+```
